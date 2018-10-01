@@ -23,7 +23,7 @@ bool tests() {
     try {
         string profile = getenv("profile");
         if (profile == "dev") {
-            string base = "./temp/t";
+            string base = "../temp/t";
             int test_num = 1;
             FILE *in;
             do {

@@ -25,7 +25,7 @@ bool tests() {
         profile = getenv("profile");
     }
     catch (exception e) {
-        cerr << e;
+        cerr << e.what();
     }
     if (profile == "dev") {
         string base = "../temp/t";
@@ -58,6 +58,26 @@ bool tests() {
 
 void task() {
 
+
+    int n;
+    cin >> n;
+    vector<int> a;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        a.push_back(x);
+    }
+
+    int c = 0, m = INT_MIN;
+    for (int i = 0; i < a.size(); i++) {
+        for (int j = 0; j <= i; j++) {
+            int index = j % 2 == 0 ? i / 2 : i - (i / 2 + 1);
+            c += index;
+            m = max(c, m);
+        }
+    }
+
+    cout << m << endl;
 }
 
 int main() {
